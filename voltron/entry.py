@@ -23,17 +23,18 @@ WinDbg/CDB (via PyKD):
 
 log = None
 
-try:
-    # fix path if it's clobbered by brew
-    import sys
-    if sys.platform == 'darwin':
-        py_base = '/System/Library/Frameworks/Python.framework/Versions/2.7/'
-        new_path = ['lib/python27.zip', 'lib/python2.7', 'lib/python2.7/plat-darwin', 'lib/python2.7/plat-mac',
-                    'lib/python2.7/plat-mac/lib-scriptpackages', 'Extras/lib/python', 'lib/python2.7/lib-tk',
-                    'lib/python2.7/lib-old', 'lib/python2.7/lib-dynload']
-        sys.path = [p for p in sys.path if 'Cellar' not in p] + [py_base + p for p in new_path]
-except:
-    pass
+# Mac remove python2.7 support, use python3
+# try:
+#     # fix path if it's clobbered by brew
+#     import sys
+#     if sys.platform == 'darwin':
+#         py_base = '/System/Library/Frameworks/Python.framework/Versions/2.7/'
+#         new_path = ['lib/python27.zip', 'lib/python2.7', 'lib/python2.7/plat-darwin', 'lib/python2.7/plat-mac',
+#                     'lib/python2.7/plat-mac/lib-scriptpackages', 'Extras/lib/python', 'lib/python2.7/lib-tk',
+#                     'lib/python2.7/lib-old', 'lib/python2.7/lib-dynload']
+#         sys.path = [p for p in sys.path if 'Cellar' not in p] + [py_base + p for p in new_path]
+# except:
+#     pass
 
 try:
     import logging
